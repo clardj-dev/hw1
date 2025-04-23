@@ -128,7 +128,7 @@ CREATE TABLE movies (
 CREATE TABLE roles (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   actor_name TEXT,
-  character_title TEXT,
+  character_name TEXT,
   movie_id INTEGER
 );
 
@@ -156,7 +156,7 @@ INSERT INTO movies (
 VALUES (
   "Batman Begins",
   2005,
-  "PG-13"
+  "PG-13",
   1
 );
 
@@ -169,7 +169,7 @@ INSERT INTO movies (
 VALUES (
   "The Dark Knight",
   2008,
-  "PG-13"
+  "PG-13",
   1
 );
 
@@ -364,7 +364,8 @@ VALUES (
 .print ""
 
 -- The SQL statement for the movies output
--- TODO!
+SELECT movies.title, movies.year, movies.rating, studios.name
+FROM movies INNER JOIN studios ON studios.id = movies.studio_id;
 
 -- Prints a header for the cast output
 .print ""
